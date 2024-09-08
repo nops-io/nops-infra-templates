@@ -40,9 +40,9 @@ karpenter.sh/discovery: <your_cluster_name>
 To provision the resources of the module, position in the folder/directory where you have all the Terraform files and execute the following commands:
 
 ```bash
-$ terraform init
-$ terraform plan
-$ terraform apply
+terraform init
+terraform plan
+terraform apply
 ```
 
 Once the Terraform apply command finishes successfully, the following command can be used to list the pods in the Karpenter namespace, and you should see 2 running pods:
