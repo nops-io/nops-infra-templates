@@ -2,8 +2,6 @@
 
 Configuration in this directory creates a Fargate Profile to run [Karpenter](https://karpenter.sh/) and used to provision and manage compute resource scaling. In the example provided, is assumed that an EKS cluster is already created and using [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) is useed to scale and manage nodes.
 
-Migrating to Fargate offers a serverless experience, eliminating the need to manage underlying infrastructure, which simplifies operations and reduces overhead. It's ideal for variable workloads due to its automatic scaling and ensures high availability and reliability without the need for manual intervention in node management. (For predictable workloads, you may want to use the managed node groups method). 
-
 *Note: The following migration guide was composed by taking inspiration from the EKS Terraform AWS Modules, more info [here](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/20.14.0)*
 ## Requirements
 
