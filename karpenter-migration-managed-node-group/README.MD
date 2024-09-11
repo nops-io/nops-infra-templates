@@ -1,6 +1,6 @@
 # How to migrate from Cluster Autoscaler to Karpenter using EKS Managed Node Groups
 
-Configuration in this directory creates an EKS managed node group where [Karpenter](https://karpenter.sh/) is deployed and used to provision and manage compute resource scaling. In the example provided, is assumed that an EKS cluster is already created and using [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) is useed to scale and manage nodes.
+Configuration in this directory creates an EKS managed node group where [Karpenter](https://karpenter.sh/) that is used to provision and manage compute resource scaling. In the example provided, is assumed that a VPC, Subnets, Security Group(s) and an EKS cluster is already created and [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) is used to scale and manage nodes.
 
 *Note: The following migration guide was composed by taking inspiration from the EKS Terraform AWS Modules, more info [here](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/20.14.0)*
 ## Requirements
@@ -22,7 +22,9 @@ Configuration in this directory creates an EKS managed node group where [Karpent
 | <a name="provider_kubectl"></a> [kubectl](#provider\_kubectl) | >= 2.0 |
 
 ## AWS Resources
-- VPC, Subnets, Security Group(s)
+- VPC
+- Subnets
+- Security Group(s)
 - EKS Cluster
 
 ## Tagging Resources

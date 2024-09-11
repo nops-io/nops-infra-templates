@@ -1,4 +1,4 @@
-# How to migrate from Cluster Autoscaler to Karpenter using Fargate
+# nOps Karpenter Lab
 
 Configuration in this directory creates a Fargate Profile to run [Karpenter](https://karpenter.sh/) that is used to provision and manage compute resource scaling. In the example provided, is assumed that a VPC, Subnets, Security Group(s) and an EKS cluster is already created and [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) is used to scale and manage nodes.
 
@@ -29,11 +29,13 @@ Configuration in this directory creates a Fargate Profile to run [Karpenter](htt
 
 ## Tagging Resources
 
-As part of the Karpenter migration, Subnets (Typically Private subnets) where you will run your worker nodes, and Security Group(s) that are attached to your worker nodes need to be tagged accordingly with a specific key, value:
+As part of start using Karpenter, Subnets (Typically Private subnets) where you will run your worker nodes, and Security Group(s) that are attached to your worker nodes need to be tagged accordingly with a specific key, value:
 
 ```bash
 karpenter.sh/discovery: <your_cluster_name>
 ```
+*Note: The Subnets and Security Groups are already tagged for this demo*
+
 
 ## Usage
 
