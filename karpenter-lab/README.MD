@@ -93,3 +93,15 @@ After moving all pod workloads to Karpenter-provisioned nodes, you can remove/di
 ```text
 kubectl -n kube-system scale deploy/cluster-autoscaler --replicas=0
 ```
+## Clean up
+
+After lab is finished make sure to scale down the sample deployment application to 0 replicas. To do so, run the following command:
+```text
+kubectl -n default scale deploy inflate --replicas=0
+```
+
+Position in the karpenter-lab directory and uninstall karpenter, running the following command:
+```bash
+cd karpenter-lab
+terraform destroy
+```
