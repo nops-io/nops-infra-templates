@@ -12,17 +12,7 @@ variable cluster_endpoint {
 
 variable cluster_version {
   type        = string
-  description = "description"
-}
-
-variable cluster_certificate_authority_data {
-  type        = string
-  description = "description"
-}
-
-variable oidc_provider_arn {
-  type        = string
-  default     = ""
+  default     = "1.30"
   description = "description"
 }
 
@@ -32,23 +22,20 @@ variable region {
   description = "description"
 }
 
-variable account_id {
+variable cluster_certificate_authority_data {
   type        = string
   default     = ""
   description = "description"
 }
 
-variable vpc_id {
+variable oidc_provider_arn {
   type        = string
   default     = ""
   description = "description"
-}
-
-variable "tags" {
-  type = map(string)
 }
 
 variable subnet_ids {
   type        = list(string)
+  default     = [ "" ]
   description = "description"
 }
