@@ -1,4 +1,22 @@
-# main.tf
+provider "aws" {
+  region = var.region
+}
+
+# This next section of code configures the AWS provider to interact with AWS services, specifically in the “us-east-1” region. 
+# This provider is used to manage AWS resources such as ECR, IAM roles and more.
+provider "aws" {
+  region = "us-east-1"
+  alias  = "virginia"
+}
+
+terraform {
+  required_providers {
+    kubectl = {
+      source = "alekc/kubectl"
+      version = "2.0.4"
+    }
+  }
+}
 
 # This configures the Kubernetes provider to interact with the Kubernetes API server. 
 # It uses the AWS CLI to authenticate with the EKS cluster by generating a token.
@@ -43,13 +61,6 @@ provider "kubectl" {
     # This requires the awscli to be installed locally where Terraform is executed
     args = ["eks", "get-token", "--cluster-name", var.cluster_name]
   }
-}
-
-# This next section of code configures the AWS provider to interact with AWS services, specifically in the “us-east-1” region. 
-# This provider is used to manage AWS resources such as ECR, IAM roles and more.
-provider "aws" {
-  region = "us-east-1"
-  alias  = "virginia"
 }
 
 # Now, we retrieve an authorization token to access the public Amazon ECR registry. This is required to pull container images. 
